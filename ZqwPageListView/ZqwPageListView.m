@@ -17,6 +17,7 @@
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, assign) BOOL suppressScrollEvent;
 @property (nonatomic, readonly) CGSize pageSize;
+@property (nonatomic, readonly) NSInteger numberOfPages;
 
 @end
 

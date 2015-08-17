@@ -14,7 +14,6 @@ typedef void(^PageViewClickBlock)(ZqwPageListView *pageListView, NSInteger pageI
 
 @interface ZqwPageListView : UIView
 
-@property (nonatomic, readonly) NSInteger numberOfPages;
 @property (nonatomic, strong, readonly) NSArray *visibleListViews;
 @property (nonatomic, assign, getter = isScrollEnabled) BOOL scrollEnabled;
 @property (nonatomic, assign) NSInteger currentPageIndex;
