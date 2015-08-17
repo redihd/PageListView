@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 ZhuQuanWei. All rights reserved.
 //
 
-#import "ZqwPageListVIew.h"
+#import "ZqwPageListView.h"
 
-@interface ZqwPageListVIew ()<UIScrollViewDelegate, UIGestureRecognizerDelegate>
+@interface ZqwPageListView ()<UIScrollViewDelegate, UIGestureRecognizerDelegate>
 
 // 储存可视区域的视图及其index
 @property (nonatomic, strong) NSMutableDictionary *visibleListViewsItems;
@@ -20,11 +20,11 @@
 
 @end
 
-@implementation ZqwPageListVIew
+@implementation ZqwPageListView
 
 #pragma mark -
 #pragma mark lazy Load
-
+//scrollView初始化
 - (UIScrollView *)scrollView{
     if (nil == _scrollView) {
         _scrollView = [[UIScrollView alloc] init];
@@ -83,7 +83,7 @@
     }
     return self;
 }
-
+// 进行一些基本属性设置
 - (void)commonInit{
     _scrollEnabled = YES;
     _bounces = NO;
@@ -109,7 +109,7 @@
     [self loadDequeueViewAndVisibleViewsIfNeeded];
     [self layOutvisibleListViews];
 }
-
+//加载某一个view 如果有原来的view，把原来的视图放入复用池
 - (UIView *)loadViewAtIndex:(NSInteger)index{
     UIView *view = self.loadViewAtIndexBlock(index,[self dequeueView]);
     if (view == nil){
@@ -120,7 +120,7 @@
         [self queueItemView:oldView];
         [oldView removeFromSuperview];
     }
-    
+
     [self setItemView:view forIndex:index];
     [self setFrameForView:view atIndex:index];
     view.userInteractionEnabled = YES;
@@ -128,7 +128,7 @@
     
     return view;
 }
-
+//新的可视区域，来更换可视视图池和复用视图池
 - (void)loadDequeueViewAndVisibleViewsIfNeeded{
     CGFloat itemWidth = _pageSize.width;
     if (itemWidth){
@@ -160,7 +160,7 @@
         }
     }
 }
-
+//对可视视图更新frame
 - (void)layOutvisibleListViews{
     for (UIView *view in self.visibleListViews){
         [self setFrameForView:view atIndex:[self indexOfItemView:view]];
@@ -179,7 +179,7 @@
     
     [self setNeedsLayout];
 }
-
+//更新有多少Page和view的size
 - (void)updatePageSizeAndCount{
     _numberOfPages = self.totalPagesCountBlock();
     
@@ -195,24 +195,24 @@
 
 #pragma mark -
 #pragma mark viewManage
-
+//根据index返回可视图  可为nil
 - (UIView *)itemViewAtIndex:(NSInteger)index{
     return _visibleListViewsItems[@(index)];
 }
-
+//设置可视池的view 和对应的index
 - (void)setItemView:(UIView *)view forIndex:(NSInteger)index{
     ((NSMutableDictionary *)_visibleListViewsItems)[@(index)] = view;
 }
-
+//对可视池排序
 - (NSArray *)indexesForVisibleItems{
     return [[_visibleListViewsItems allKeys] sortedArrayUsingSelector:@selector(compare:)];
 }
-
+//可视池
 - (NSArray *)visibleListViews{
     NSArray *indexes = [self indexesForVisibleItems];
     return [_visibleListViewsItems objectsForKeys:indexes notFoundMarker:[NSNull null]];
 }
-
+//找到可视视图的index
 - (NSInteger)indexOfItemView:(UIView *)view{
     NSUInteger index = [[_visibleListViewsItems allValues] indexOfObject:view];
     if (index != NSNotFound){
@@ -223,7 +223,7 @@
 
 #pragma mark -
 #pragma mark viewLayout
-
+//设置scrollView的size 和frame
 - (void)updateScrollViewDimensions{
     CGSize contentSize = self.frame.size;
     self.scrollView.frame = self.bounds;
@@ -231,13 +231,13 @@
     contentSize.width = _pageSize.width * _numberOfPages;
     self.scrollView.contentSize = contentSize;
 }
-
+//设置视图位置
 - (void)setFrameForView:(UIView *)view atIndex:(NSInteger)index{
     CGPoint center = view.center;
     center.x = (index + 0.5f) * _pageSize.width;
     view.center = center;
 }
-
+//更新scrollview的offset
 - (void)updateScrollOffset{
     [self setContentOffsetWithoutEvent:CGPointMake(_scrollView.contentOffset.x, 0.0f)];
 }
@@ -254,11 +254,11 @@
         if (animationEnabled) [UIView setAnimationsEnabled:YES];
     }
 }
-
+//当前page的index
 - (NSInteger)currentPageIndex{
     return roundf((float)_scrollView.contentOffset.x / _pageSize.width);
 }
-
+//scroll时初始index
 - (NSInteger)getStartPage
 {
     return floorf((float)_scrollView.contentOffset.x / _pageSize.width);
@@ -270,7 +270,7 @@
 
 #pragma mark -
 #pragma mark View queing
-
+// 复用池
 - (void)queueItemView:(UIView *)view{
     if (view){
         [_dequeueViewPool addObject:view];

@@ -7,11 +7,11 @@
 //
 
 #import "ViewController.h"
-#import "ZqwPageListVIew.h"
+#import "ZqwPageListView.h"
 
 @interface ViewController ()
 
-@property(nonatomic, strong) ZqwPageListVIew * pageListView;
+@property(nonatomic, strong) ZqwPageListView * pageListView;
 
 @end
 
@@ -20,9 +20,10 @@
 #pragma mark -
 #pragma mark lazy load
 
-- (ZqwPageListVIew *)pageListView{
+- (ZqwPageListView *)pageListView{
     if (nil == _pageListView) {
-        _pageListView = [ZqwPageListVIew new];
+        _pageListView = [ZqwPageListView new];
+        __weak typeof(self) weakSelf = self;
         _pageListView.totalPagesCountBlock = ^NSInteger(void){
             return 60000;
         };
@@ -45,19 +46,12 @@
                 label = (UILabel *)[dequeueView viewWithTag:1];
                 
             }
-            
-            CGFloat red = arc4random() / (CGFloat)INT_MAX;
-            CGFloat green = arc4random() / (CGFloat)INT_MAX;
-            CGFloat blue = arc4random() / (CGFloat)INT_MAX;
-            dequeueView.backgroundColor = [UIColor colorWithRed:red
-                                                          green:green
-                                                           blue:blue
-                                                          alpha:1.0];
+            dequeueView.backgroundColor = [weakSelf getRandomColor];
             label.text = [NSString stringWithFormat:@"%ld",pageIndex];
             
             return dequeueView;
         };
-        _pageListView.pageViewClickBlock = ^(ZqwPageListVIew *pageListView, NSInteger pageIndex){
+        _pageListView.pageViewClickBlock = ^(ZqwPageListView *pageListView, NSInteger pageIndex){
             NSLog(@"%zd",pageIndex);
         };
 
@@ -67,7 +61,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self.view addSubview:self.pageListView];
 }
 
@@ -78,6 +71,19 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+#pragma mark -
+#pragma mark color helper
+
+- (UIColor *)getRandomColor{
+    CGFloat red = arc4random() / (CGFloat)INT_MAX;
+    CGFloat green = arc4random() / (CGFloat)INT_MAX;
+    CGFloat blue = arc4random() / (CGFloat)INT_MAX;
+    return  [UIColor colorWithRed:red
+                            green:green
+                             blue:blue
+                            alpha:1.0];
 }
 
 @end

@@ -14,7 +14,7 @@
 		322D3F3F1B808C8F006377C0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 322D3F3E1B808C8F006377C0 /* Images.xcassets */; };
 		322D3F421B808C8F006377C0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 322D3F401B808C8F006377C0 /* LaunchScreen.xib */; };
 		322D3F4E1B808C8F006377C0 /* ZqwPageListViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 322D3F4D1B808C8F006377C0 /* ZqwPageListViewTests.m */; };
-		322D3F591B808CCF006377C0 /* ZqwPageListVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 322D3F581B808CCF006377C0 /* ZqwPageListVIew.m */; };
+		322D3F591B808CCF006377C0 /* ZqwPageListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 322D3F581B808CCF006377C0 /* ZqwPageListView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +41,8 @@
 		322D3F471B808C8F006377C0 /* ZqwPageListViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZqwPageListViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		322D3F4C1B808C8F006377C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		322D3F4D1B808C8F006377C0 /* ZqwPageListViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZqwPageListViewTests.m; sourceTree = "<group>"; };
-		322D3F571B808CCF006377C0 /* ZqwPageListVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZqwPageListVIew.h; sourceTree = "<group>"; };
-		322D3F581B808CCF006377C0 /* ZqwPageListVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZqwPageListVIew.m; sourceTree = "<group>"; };
+		322D3F571B808CCF006377C0 /* ZqwPageListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZqwPageListView.h; sourceTree = "<group>"; };
+		322D3F581B808CCF006377C0 /* ZqwPageListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZqwPageListView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,8 +92,8 @@
 				322D3F3E1B808C8F006377C0 /* Images.xcassets */,
 				322D3F401B808C8F006377C0 /* LaunchScreen.xib */,
 				322D3F311B808C8F006377C0 /* Supporting Files */,
-				322D3F571B808CCF006377C0 /* ZqwPageListVIew.h */,
-				322D3F581B808CCF006377C0 /* ZqwPageListVIew.m */,
+				322D3F571B808CCF006377C0 /* ZqwPageListView.h */,
+				322D3F581B808CCF006377C0 /* ZqwPageListView.m */,
 			);
 			path = ZqwPageListView;
 			sourceTree = "<group>";
@@ -226,7 +226,7 @@
 			files = (
 				322D3F3A1B808C8F006377C0 /* ViewController.m in Sources */,
 				322D3F371B808C8F006377C0 /* AppDelegate.m in Sources */,
-				322D3F591B808CCF006377C0 /* ZqwPageListVIew.m in Sources */,
+				322D3F591B808CCF006377C0 /* ZqwPageListView.m in Sources */,
 				322D3F341B808C8F006377C0 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,6 +422,7 @@
 				322D3F531B808C8F006377C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		322D3F541B808C8F006377C0 /* Build configuration list for PBXNativeTarget "ZqwPageListViewTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +431,7 @@
 				322D3F561B808C8F006377C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-@class ZqwPageListVIew;
+@class ZqwPageListView;
 typedef UIView *(^LoadViewAtIndexBlock)(NSInteger pageIndex,UIView *dequeueView);
 typedef NSInteger(^TotalPagesCountBlock)(void);
-typedef void(^PageViewClickBlock)(ZqwPageListVIew *pageListView, NSInteger pageIndex);
+typedef void(^PageViewClickBlock)(ZqwPageListView *pageListView, NSInteger pageIndex);
 
-@interface ZqwPageListVIew : UIView
+@interface ZqwPageListView : UIView
 
 @property (nonatomic, readonly) NSInteger numberOfPages;
 @property (nonatomic, strong, readonly) NSArray *visibleListViews;
@@ -23,9 +23,12 @@ typedef void(^PageViewClickBlock)(ZqwPageListVIew *pageListView, NSInteger pageI
 @property (nonatomic, readonly, getter = isDecelerating) BOOL decelerating;
 @property (nonatomic, readonly, getter = isScrolling) BOOL scrolling;
 
-
+- (void)reloadData;
+//返回 对应index所需要的View
 @property (nonatomic , copy) LoadViewAtIndexBlock loadViewAtIndexBlock;
+//返回一共有多少个Page
 @property (nonatomic , copy) TotalPagesCountBlock totalPagesCountBlock;
+//点击事件
 @property (nonatomic , copy) PageViewClickBlock pageViewClickBlock;
 
 @end
