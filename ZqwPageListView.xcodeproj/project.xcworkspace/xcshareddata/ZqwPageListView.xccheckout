@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>37ECA669-9AF5-4604-964B-A2CD3CBE1B14</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ZqwPageListView</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F785C4CFDA78F73F81FD66C1FB59678B3FB12A09</key>
+		<string>https://github.com/redihd/PageListView.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ZqwPageListView.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F785C4CFDA78F73F81FD66C1FB59678B3FB12A09</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/redihd/PageListView.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F785C4CFDA78F73F81FD66C1FB59678B3FB12A09</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F785C4CFDA78F73F81FD66C1FB59678B3FB12A09</string>
+			<key>IDESourceControlWCCName</key>
+			<string>PageListView</string>
+		</dict>
+	</array>
+</dict>
+</plist>

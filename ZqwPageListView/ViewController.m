@@ -24,12 +24,10 @@
     if (nil == _pageListView) {
         _pageListView = [ZqwPageListVIew new];
         _pageListView.totalPagesCountBlock = ^NSInteger(void){
-            return 6;
+            return 60000;
         };
-        __weak typeof(self) weakSelf = self;
         _pageListView.loadViewAtIndexBlock = ^UIView *(NSInteger pageIndex,UIView *dequeueView){
             UILabel *label = nil;
-            NSLog(@"%zd  %zd",pageIndex,weakSelf.pageListView.currentPageIndex);
             if (nil == dequeueView) {
                 dequeueView = [[UIView alloc] initWithFrame:self.pageListView.bounds];
                 dequeueView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -71,7 +69,6 @@
     [super viewDidLoad];
     
     [self.view addSubview:self.pageListView];
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)viewDidLayoutSubviews{
@@ -81,7 +78,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
